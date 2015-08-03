@@ -1,0 +1,122 @@
+\documentclass{article}
+
+% Compile with xelatex
+
+% The arabic aplhabet, with quite large characters. Horizontal notepad 
+% style lines are used and letters are correctly placed on the lines.
+% In order to provide this effect we had to create a quite loose 
+% document layout.
+
+% fonts
+%\usepackage[cm-default]{fontspec}
+
+
+\usepackage[vmargin=3cm]{geometry}
+\usepackage{tikzpagenodes}
+\usepackage{lipsum}
+\usepackage{background}
+
+\usepackage{array}
+\usepackage{leading}
+
+\newcommand\x{20pt}
+\leading{\x}
+
+% one table on multiple pages
+\usepackage{longtable}
+
+\usepackage{setspace}
+\usepackage{fontspec}
+\newfontfamily\arabicfont[Script=Arabic,Scale=10]{Scheherazade}
+\setmainfont[Mapping=tex-text]{DejaVu Sans} % nice greek chars
+
+% notes on the margins
+\usepackage{marginnote}
+
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+
+% custom commands/macros
+\newcommand{\ar}[1]{\textarabic{#1}}
+\definecolor{notepadline}{RGB}{205,201,201}
+
+% Repeating horizontal lines was adapted from
+% http://tex.stackexchange.com/questions/188164/how-to-use-latex-to-print-a-document-to-look-like-a-lined-notebook
+
+\backgroundsetup{
+contents={%
+% hack: backgroundsetup.position moves the picture too much. Ensure 
+% there are enough vertical lines (100), and that each line is long 
+% enough 
+	\begin{tikzpicture}
+		\foreach \fila in {0,...,100}
+		{
+			\draw [line width=1pt,color=notepadline] 
+			(current page.west|-0,-\fila*\x*6) -- ++(\paperwidth*2,0);
+		}
+	\end{tikzpicture}%
+},
+	scale=1,
+	angle=0,
+	opacity=1,
+	position={0,\x+2}
+}
+
+
+\begin{document}
+
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\renewcommand*{\arraystretch}{6}
+\begin{longtable}{@{\extracolsep{\fill}} c c c c c @{}} 
+\ar{ـب} & \ar{ـبـ} & \ar{بـ} & \ar{ﺏ} &  \\ 
+\ar{ـت}  & \ar{تـ}   &  \ar{تـ}  &  \ar{ﺕ} &  \\
+\ar{ـث}  & \ar{ـثـ}  &  \ar{ثـ}  &  \ar{ﺙ} &  \\
+\ar{ـن}  &  \ar{ـنـ}  &  \ar{نـ}  &  \ar{ن} &  \\
+
+\ar{ـس}  &  \ar{ـسـ}  &  \ar{سـ}  &  \ar{ﺱ} &  \\
+\ar{ـش}  &  \ar{ـشـ}  &  \ar{شـ}  &  \ar{ﺵ} &  \\
+
+\ar{ـل}  &  \ar{ـلـ}  &  \ar{لـ}  &  \ar{ﻝ} &  \\
+\ar{ـك}  &  \ar{ـكـ}  &  \ar{كـ}  &  \ar{ﻙ} &  \\
+\ar{ـف}  &  \ar{ـفـ}  &  \ar{فـ}  &  \ar{ف} &  \\
+\ar{ـق}  &  \ar{ـقـ}  &  \ar{قـ}  &  \ar{ﻕ} &  \\
+\ar{ـم}  &  \ar{ـمـ}  &  \ar{مـ}  &  \ar{ﻡ} &  \\
+
+\ar{ـج}  & \ar{ـجـ}  &  \ar{جـ}  &  \ar{ﺝ} &  \\
+\ar{ـح}  & \ar{ـحـ}  &  \ar{حـ}  &  \ar{ﺡ} &  \\
+\ar{ـخ}  & \ar{ـخـ}  &  \ar{خـ}  &  \ar{ﺥ} &  \\
+
+\clearpage % "group" similar letters on the same page
+
+\marginnote{Βαριά ↧}[-2cm]
+\ar{ـع}  &  \ar{ـعـ}  &  \ar{عـ}  &  \ar{ﻉ} &  \\
+\ar{ـغ}  &  \ar{ـغـ}  &  \ar{غـ}  &  \ar{ﻍ} & \\
+
+\ar{ـط}  &  \ar{ـطـ}  &  \ar{طـ}  &  \ar{ﻁ} &  \\
+\ar{ـظ}  &  \ar{ـظـ}  &  \ar{ظـ}  &  \ar{ﻅ} &  \\
+
+\ar{ـص}  &  \ar{ـصـ}  &  \ar{صـ}  &  \ar{ﺹ} &  \\
+\ar{ـض}  &  \ar{ـضـ}  &  \ar{ضـ}  &  \ar{ﺽ} &  \\
+
+\marginnote{Bαριά ↥}[-3.5cm]
+
+\ar{ـه}  &  \ar{ـهـ}  &  \ar{هـ}  &  \ar{ﻩ} &  \\
+\ar{ـي}  &  \ar{ـيـ}  &  \ar{يـ}  &  \ar{ﻱ} &  \\
+
+\clearpage % "group" similar letters on the same page
+\reversemarginpar
+\marginnote{Αντικοινωνικά}[-4cm]
+\ar{ـا}  & \ar{ـا} & \ar{ا} & \ar{ا} & \\
+\ar{ـو}  & \ar{ـو} & \ar{ﻭ} & \ar{ﻭ} & \\ 
+\ar{ـد}  & \ar{ـد} & \ar{ﺩ} & \ar{ﺩ} & \\ 
+\ar{ـذ}  & \ar{ـذ} &\ar{ﺫ}  & \ar{ﺫ} & \\ 
+\ar{ـر}  & \ar{ـر} & \ar{ﺭ} & \ar{ﺭ} & \\ 
+\ar{ـر}  & \ar{ـز} & \ar{ﺯ} & \ar{ﺯ} & \\ 
+
+\ar{ـر}  & \ar{ـز} & \ar{ﺯ} & \ar{ﺯ} & \\ 
+
+\end{longtable}
+
+\end{document}

@@ -1,0 +1,100 @@
+\documentclass[twocolumn,a4paper]{article}
+
+% Compile with xelatex
+
+% fonts
+\usepackage[cm-default]{fontspec}
+\setmainfont[Mapping=tex-text,Scale=1.2]{DejaVu Sans} % nice greek chars
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.7]{Droid Arabic Naskh} % nice arabic chars
+
+%\usepackage{longtable} % Doesn't not work with \documentclass[twocolumns] - avoid
+\usepackage{supertabular,booktabs}
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+% TODO check: table row height?
+\usepackage{array}
+\usepackage{leading}
+
+% different langiages: greek, arabic
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newcommand{\ar}[1]{\textarabic{#1}}
+
+% margins
+
+
+\begin{document}
+
+\renewcommand*{\arraystretch}{3}
+\begin{supertabular}{ c c }
+% & \ar{} \\
+% http://www.fileformat.info/info/unicode/block/arabic/list.htm
+
+μικρός      & \ar{ كَبير } \\
+μεγάλος     & \ar{ صَغير } \\
+όμορφος     & \ar{ جَميل } \\
+άσχημος     & \ar{ قَبيح } \\
+παλιός      & \ar{ قَديم } \\
+καινούργιος & \ar{ جَديد } \\
+σπίτι       & \ar{ بَيت } \\
+φίλος       & \ar{ صَديق } \\
+φοιτητής    & \ar{ طالِب } \\
+βιβλίο      & \ar{ كِتاب } \\
+καθηγητής   & \ar{ اُستاذ} \\
+άντρας      & \ar{ رَجُل } \\
+δουλειά     & \ar{ عَمَل } \\
+σημειωματάρειο & \ar{ دَفتَر } \\
+όνομα       & \ar{اِسم } \\
+πόλη        & \ar{ مَدينة } \\
+περιοχή     & \ar{ مِنطَقة } \\
+χόμπυ       & \ar{ هِواية } \\
+κολύμβηση   & \ar{ سِباحة } \\
+χώρα        & \ar{ بَلَد } \\
+γλώσσα      & \ar{ لُغة } \\
+Αραβική     & \ar{ عرَبية } \\
+και         & \ar{ وَ } \\
+σχολείο     & \ar{ مَدرَسة } \\
+μάθημα      & \ar{ دَرس } \\
+κορίτσι     & \ar{ بِنت } \\
+αδελφός     & \ar{ اخ } \\
+αδελφή      & \ar{ اُخت } \\
+μαμά        & \ar{ اُم} \\
+μπαμπάς     & \ar{ اب } \\
+οικογένεια  & \ar{ اُسرة } \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+% & \ar{} \\
+
+
+\end{supertabular}
+
+
+\clearpage
+
+
+\begin{supertabular}{ c c }
+Ελλάδα       & \ar{اليونان} \\
+Τουρκία      & \ar{توركيا} \\
+Συρία        & \ar{سوريا} \\
+Αμερική      & \ar{أمريكا} \\
+Αυστραλία    & \ar{أستراليا} \\
+Γαλλία       & \ar{فَرانسا} \\
+Πακιστάν     & \ar{بَكيستان} \\
+Λιβύη        & \ar{ليبيا} \\
+Γερμανία     & \ar{ألمانيا} \\
+Τυνησία      & \ar{تونيس} \\
+Καλιφόρνια   & \ar{كاليفورنيا} \\
+Νέα Υόρκη    & \ar{نيويورك} \\
+Αμστερνταμ   & \ar{أمستردام} \\
+\end{supertabular}
+
+\end{document}

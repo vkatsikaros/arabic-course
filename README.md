@@ -1,6 +1,6 @@
 # Notes for my modern Arabic language course
 
-Just a collection of notes (LaTeX documents) for my Arabic language courses. Based on my personal preferences. The main language used is Greek.
+A collection of notes (LaTeX documents) for my Arabic language course. The main language used is Greek.
 
 ## Installation
 
@@ -8,12 +8,12 @@ Install tex stuff on debian based systems:
 
 	sudo apt-get install texlive-full # this might take a while
 	sudo apt-get install fonts-hosny-amiri fonts-kacst-one fonts-arabeyes  fonts-sil-scheherazade # arabic fonts
-	
+
 Use XeLaTeX to compile the documents.
 
 ## Contributing
 
-I doubt you'll find this useful if you are not a Greek learning Arabic. If you are, feel free to report any typos.
+Feel free to report any typos or corrections (I doubt you'll find this useful if you are not a Greek learning Arabic).
 
 ## License
 

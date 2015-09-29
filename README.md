@@ -1,6 +1,6 @@
 # Notes for my modern Arabic language course
 
-A collection of notes (LaTeX documents) for my Arabic language course. The main language used is Greek.
+A collection of notes (LaTeX documents) I made as a student for my Arabic language course. The main language used is Greek.
 
 ## Installation
 
@@ -19,4 +19,4 @@ Feel free to report any typos or corrections (I doubt you'll find this useful if
 
 Copyright (c) 2015 Vangelis Katsikaros.
 
-The material is provided AS IS. If you don't get what AS IS means see [GNU General Public License - Disclaimer of Warranty](http://www.gnu.org/licenses/gpl-3.0.en.html). This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+I am not a teacher of Arabic - just a humble student, so the material is provided AS IS. If you don't get what AS IS means see [GNU General Public License - Disclaimer of Warranty](http://www.gnu.org/licenses/gpl-3.0.en.html). This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).

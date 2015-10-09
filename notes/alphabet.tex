@@ -2,9 +2,9 @@
 
 % Compile with xelatex
 
-% The arabic aplhabet, with quite large characters. Horizontal notepad 
+% The arabic aplhabet, with quite large characters. Horizontal notepad
 % style lines are used and letters are correctly placed on the lines.
-% In order to provide this effect we had to create a quite loose 
+% In order to provide this effect we had to create a quite loose
 % document layout.
 
 % fonts
@@ -19,7 +19,7 @@
 \usepackage{array}
 \usepackage{leading}
 
-\newcommand\x{20pt}
+\newcommand\x{10pt}
 \leading{\x}
 
 % one table on multiple pages
@@ -27,7 +27,7 @@
 
 \usepackage{setspace}
 \usepackage{fontspec}
-\newfontfamily\arabicfont[Script=Arabic,Scale=10]{Scheherazade}
+\newfontfamily\arabicfont[Script=Arabic,Scale=5]{Scheherazade}
 \setmainfont[Mapping=tex-text]{DejaVu Sans} % nice greek chars
 
 % notes on the margins
@@ -38,29 +38,40 @@
 \setotherlanguage{arabic}
 
 % custom commands/macros
-\newcommand{\ar}[1]{\textarabic{#1}}
+\newcommand{\ar}[1]{
+	\textarabic{#1}
+}
+\newcommand{\myb}[2]{
+	\hspace{0.5cm}
+	\begin{minipage}[c]{0.1\textwidth}
+	#1\\#2
+	\end{minipage}
+}
+\newcommand{\mybb}[3]{
+	\hspace{0.5cm}
+	\begin{minipage}[c]{0.05\textwidth}
+	#1\\#2\\#3
+	\end{minipage}
+}
 \definecolor{notepadline}{RGB}{205,201,201}
 
 % Repeating horizontal lines was adapted from
 % http://tex.stackexchange.com/questions/188164/how-to-use-latex-to-print-a-document-to-look-like-a-lined-notebook
 
 \backgroundsetup{
-contents={%
-% hack: backgroundsetup.position moves the picture too much. Ensure 
-% there are enough vertical lines (100), and that each line is long 
-% enough 
+contents={
 	\begin{tikzpicture}
-		\foreach \fila in {0,...,100}
+		\foreach \lnum in {0,...,9}
 		{
-			\draw [line width=1pt,color=notepadline] 
-			(current page.west|-0,-\fila*\x*6) -- ++(\paperwidth*2,0);
+			\draw [line width=1pt,color=notepadline]
+			(current page.west|-0,-\lnum*\x*6) -- ++(\paperwidth*1.2,0);
 		}
-	\end{tikzpicture}%
-},
+	\end{tikzpicture}
+	},
 	scale=1,
 	angle=0,
 	opacity=1,
-	position={0,\x+2}
+	position={0,-325pt}
 }
 
 
@@ -69,53 +80,50 @@ contents={%
 \setlength\LTleft{0pt}
 \setlength\LTright{0pt}
 \renewcommand*{\arraystretch}{6}
-\begin{longtable}{@{\extracolsep{\fill}} c c c c c @{}} 
-\ar{ـب} & \ar{ـبـ} & \ar{بـ} & \ar{ﺏ} &  \\ 
-\ar{ـت}  & \ar{تـ}   &  \ar{تـ}  &  \ar{ﺕ} &  \\
-\ar{ـث}  & \ar{ـثـ}  &  \ar{ثـ}  &  \ar{ﺙ} &  \\
-\ar{ـن}  &  \ar{ـنـ}  &  \ar{نـ}  &  \ar{ن} &  \\
+\begin{longtable}{@{\extracolsep{\fill}} c c c c c @{}}
+\ar{ـب}  & \ar{ـبـ}   & \ar{بـ}   & \ar{ﺏ}  & \myb{μπ}{bā}  \\
+\ar{ـت}  & \ar{تـ}    &  \ar{تـ}  &  \ar{ﺕ} & \myb{t}{tā} \\
+\ar{ـث}  & \ar{ـثـ}   &  \ar{ثـ}  &  \ar{ﺙ} & \myb{θ}{thā} \\
+\ar{ـن}  &  \ar{ـنـ}  &  \ar{نـ}  &  \ar{ن} & \myb{ν}{nūn} \\
 
-\ar{ـس}  &  \ar{ـسـ}  &  \ar{سـ}  &  \ar{ﺱ} &  \\
-\ar{ـش}  &  \ar{ـشـ}  &  \ar{شـ}  &  \ar{ﺵ} &  \\
+\ar{ـس}  &  \ar{ـسـ}  &  \ar{سـ}  &  \ar{ﺱ} & \myb{σ}{sīn} \\
+\ar{ـش}  &  \ar{ـشـ}  &  \ar{شـ}  &  \ar{ﺵ} & \myb{sh}{shīn} \\
 
-\ar{ـل}  &  \ar{ـلـ}  &  \ar{لـ}  &  \ar{ﻝ} &  \\
-\ar{ـك}  &  \ar{ـكـ}  &  \ar{كـ}  &  \ar{ﻙ} &  \\
-\ar{ـف}  &  \ar{ـفـ}  &  \ar{فـ}  &  \ar{ف} &  \\
-\ar{ـق}  &  \ar{ـقـ}  &  \ar{قـ}  &  \ar{ﻕ} &  \\
-\ar{ـم}  &  \ar{ـمـ}  &  \ar{مـ}  &  \ar{ﻡ} &  \\
+\ar{ـل}  &  \ar{ـلـ}  &  \ar{لـ}  &  \ar{ﻝ} & \myb{λ}{lām} \\
+\ar{ـك}  &  \ar{ـكـ}  &  \ar{كـ}  &  \ar{ﻙ} & \myb{κ}{kāf} \\
+\ar{ـف}  &  \ar{ـفـ}  &  \ar{فـ}  &  \ar{ف} & \myb{φ}{fā} \\
+\ar{ـق}  &  \ar{ـقـ}  &  \ar{قـ}  &  \ar{ﻕ} & \myb{q ξύνω λαρύγγι}{qāf}  \\ %
+\ar{ـم}  &  \ar{ـمـ}  &  \ar{مـ}  &  \ar{ﻡ} & \myb{μ}{mīm} \\
 
-\ar{ـج}  & \ar{ـجـ}  &  \ar{جـ}  &  \ar{ﺝ} &  \\
-\ar{ـح}  & \ar{ـحـ}  &  \ar{حـ}  &  \ar{ﺡ} &  \\
-\ar{ـخ}  & \ar{ـخـ}  &  \ar{خـ}  &  \ar{ﺥ} &  \\
+\ar{ـج}  & \ar{ـجـ}  &  \ar{جـ}  &  \ar{ﺝ} & \myb{τζ}{jīm} \\
+\ar{ـح}  & \ar{ـحـ}  &  \ar{حـ}  &  \ar{ﺡ} & \myb{χ άηχο/τζάμι}{ḥā} \\ %
+\ar{ـخ}  & \ar{ـخـ}  &  \ar{خـ}  &  \ar{ﺥ} & \myb{χ ξύνω λαρύγγι}{khā} \\
+%\clearpage % "group" similar letters on the same page
 
-\clearpage % "group" similar letters on the same page
+\ar{ـع}  &  \ar{ـعـ}  &  \ar{عـ}  &  \ar{ﻉ} & \myb{α τρομάζω}{ayn} \\
+\ar{ـغ}  &  \ar{ـغـ}  &  \ar{غـ}  &  \ar{ﻍ} & \myb{γ}{ghayn}\\
 
-\marginnote{Βαριά ↧}[-2cm]
-\ar{ـع}  &  \ar{ـعـ}  &  \ar{عـ}  &  \ar{ﻉ} &  \\
-\ar{ـغ}  &  \ar{ـغـ}  &  \ar{غـ}  &  \ar{ﻍ} & \\
+%\reversemarginpar
+%\marginnote{Βαριά ↧}%[-2cm]
 
-\ar{ـط}  &  \ar{ـطـ}  &  \ar{طـ}  &  \ar{ﻁ} &  \\
-\ar{ـظ}  &  \ar{ـظـ}  &  \ar{ظـ}  &  \ar{ﻅ} &  \\
+\ar{ـط}  &  \ar{ـطـ}  &  \ar{طـ}  &  \ar{ﻁ} & \myb{τ ρώσσικο}{ṭā} \\
+\ar{ـظ}  &  \ar{ـظـ}  &  \ar{ظـ}  &  \ar{ﻅ} & \myb{δ ρώσσικο}{ẓā} \\
+\ar{ـص}  &  \ar{ـصـ}  &  \ar{صـ}  &  \ar{ﺹ} & \myb{σ ρώσσικο}{ṣād}  \\
+\ar{ـض}  &  \ar{ـضـ}  &  \ar{ضـ}  &  \ar{ﺽ} & \myb{ντ ρώσσικο}{ḍād}  \\
+%\marginnote{Bαριά ↥}%[-3.5cm]
 
-\ar{ـص}  &  \ar{ـصـ}  &  \ar{صـ}  &  \ar{ﺹ} &  \\
-\ar{ـض}  &  \ar{ـضـ}  &  \ar{ضـ}  &  \ar{ﺽ} &  \\
+\ar{ـه}  &  \ar{ـهـ}  &  \ar{هـ}  &  \ar{ﻩ} & \myb{χ}{hā} \\ % (αγγκλικό h)
+\ar{ـي}  &  \ar{ـيـ}  &  \ar{يـ}  &  \ar{ﻱ} & \myb{η}{yā} \\ % με φωνήεντα γ (γαλλικό r) με σύμφωνα η
 
-\marginnote{Bαριά ↥}[-3.5cm]
+%\clearpage % "group" similar letters on the same page
 
-\ar{ـه}  &  \ar{ـهـ}  &  \ar{هـ}  &  \ar{ﻩ} &  \\
-\ar{ـي}  &  \ar{ـيـ}  &  \ar{يـ}  &  \ar{ﻱ} &  \\
-
-\clearpage % "group" similar letters on the same page
-\reversemarginpar
-\marginnote{Αντικοινωνικά}[-4cm]
-\ar{ـا}  & \ar{ـا} & \ar{ا} & \ar{ا} & \\
-\ar{ـو}  & \ar{ـو} & \ar{ﻭ} & \ar{ﻭ} & \\ 
-\ar{ـد}  & \ar{ـد} & \ar{ﺩ} & \ar{ﺩ} & \\ 
-\ar{ـذ}  & \ar{ـذ} &\ar{ﺫ}  & \ar{ﺫ} & \\ 
-\ar{ـر}  & \ar{ـر} & \ar{ﺭ} & \ar{ﺭ} & \\ 
-\ar{ـر}  & \ar{ـز} & \ar{ﺯ} & \ar{ﺯ} & \\ 
-
-\ar{ـر}  & \ar{ـز} & \ar{ﺯ} & \ar{ﺯ} & \\ 
+%\marginnote{Αντικοινωνικά}[-4cm]
+\ar{ـا}  & \ar{ـا} & \ar{ا} & \ar{ا} & \myb{α}{alif} \\
+\ar{ـو}  & \ar{ـو} & \ar{ﻭ} & \ar{ﻭ} & \myb{ου}{wāw} \\
+\ar{ـد}  & \ar{ـد} & \ar{ﺩ} & \ar{ﺩ} & \myb{ντ}{dāl} \\
+\ar{ـذ}  & \ar{ـذ} &\ar{ﺫ}  & \ar{ﺫ} & \myb{δ}{dhāl} \\
+\ar{ـر}  & \ar{ـر} & \ar{ﺭ} & \ar{ﺭ} & \myb{ρ}{rā} \\
+\ar{ـر}  & \ar{ـز} & \ar{ﺯ} & \ar{ﺯ} & \myb{ζ}{zayn} \\
 
 \end{longtable}
 

@@ -1,0 +1,21 @@
+\documentclass[twocolumn,a4paper,balance]{article}
+
+\usepackage[cm-default]{fontspec}
+\setmainfont[Mapping=tex-text,Scale=1.2]{DejaVu Sans} % nice greek chars
+
+\usepackage{supertabular}
+
+\begin{document}
+
+% ensure twocolumns are spaced out so that they do not overlap
+\setlength\tabcolsep{0.1pt}
+
+% increase vertical space between rows
+\renewcommand*{\arraystretch}{3}
+\begin{supertabular}{ c c }
+
+\input{verbs}
+
+\end{supertabular}
+
+\end{document}

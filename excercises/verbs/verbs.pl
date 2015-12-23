@@ -3,73 +3,72 @@ use warnings;
 use utf8;
 binmode(STDOUT, ":utf8");
 
-my @tenses = qw / present past_simple  /;
 my @pers = qw / εγώ εσύ αυτός εμείς εσείς αυτοί /;
 my @verbs =
 (
 	{
 		present      => [ 'τρώ' ],
-		past_simple  => [ 'έφαγ' , 'φάγα' ],
+		past_simple  => [ 'έφαγ' , 'φάγα' ], # ok
 		past_perfect => [ 'έτρωγ', 'τρώγα' ],
 		endings      => 1,
 	},
 	{
 		present      => [ 'κατοικ' ],
-		past_simple  => [ 'κατοίκησ', 'κατοικήσ' ],
+		past_simple  => [ 'κατοίκησ', 'κατοικήσ' ], # ok
 		past_perfect => [ 'κατοικούσ' ],
 		endings      => 2,
 	},
 	{
 		present      => [ 'δουλεύ' ],
-		past_simple  => [ 'δούλεψ', 'δουλέψ' ],
+		past_simple  => [ 'δούλεψ', 'δουλέψ' ], # ok
 		past_perfect => [ 'δούλευ', 'δουλεύ' ],
 		endings      => 3,
 	},
 	{
 		present      => [ 'πίν' ],
-		past_simple  => [ 'ήπι' ],
+		past_simple  => [ 'ήπι' ], # ok
 		past_perfect => [ 'έπιν', 'πίν' ],
 		endings      => 3,
 	},
 	{
 		present      => [ 'γράφ' ],
-		past_simple  => [ 'έγραψ', 'γράψ' ],
+		past_simple  => [ 'έγραψ', 'γράψ' ], # ok
 		past_perfect => [ 'έγραφ', 'γράφ' ],
 		endings      => 3,
 	},
 	{
 		present      => [ 'αποφοιτ' ],
-		past_simple  => [ 'αποφοίτησ', 'αποφοιτήσ' ],
+		# past_simple  => [ 'αποφοίτησ', 'αποφοιτήσ' ], # ok
 		past_perfect => [ 'αποφοιτούσ' ],
 		endings      => 2,
 	},
 	{
 		present      => [ 'διαβάζ' ],
-		past_simple  => [ 'διάβασ', 'διαβάσ' ],
+		# past_simple  => [ 'διάβασ', 'διαβάσ' ], # not sure...
 		past_perfect => [ 'διάβαζ', 'διαβάζ' ],
 		endings      => 3,
 	},
 	{
 		present      => [ 'πηγαίν' ],
-		past_simple  => [ 'πήγ'  ],
+		past_simple  => [ 'πήγ'  ], # ok
 		past_perfect => [ 'πήγαιν', 'πηγαίν' ],
 		endings      => 3,
 	},
 	{
 		present      => [ 'αποκτ' ],
-		past_simple  => [ 'απόκτησ', 'αποκτήσ' ],
+		past_simple  => [ 'απόκτησ', 'αποκτήσ' ], # ok
 		past_perfect => [ 'αποκτούσ', ],
 		endings      => 2,
 	},
 	{
 		present      => [ 'παρακολουθ' ],
-		past_simple  => [ 'παρακολούθησ', 'παρακολουθήσ' ],
+		#past_simple  => [ 'παρακολούθησ', 'παρακολουθήσ' ],
 		past_perfect => [ 'παρακολούθουσ', 'παρακολουθούσ' ],
 		endings      => 2,
 	},
 	{
 		present      => [ 'μιλά' ],
-		past_simple  => [ 'μίλησ', 'μιλήσ' ],
+		#past_simple  => [ 'μίλησ', 'μιλήσ' ],
 		past_perfect => [ 'μιλούσ', ],
 		endings      => 1,
 	},
@@ -101,13 +100,18 @@ use  Data::Dumper ;
 foreach(1..120)
 {
 	my $v = int( rand( @verbs ) );
-	my $t = @tenses[ int( rand( @tenses ) ) ];
 	my $p = int( rand( @pers ) );
+	
+	# pick one of the verb's available tenses
+	my @tenses = grep {
+	                 $_ ne 'endings' and $_ ne 'past_perfect'
+	             } 
+	             keys %{ $verbs[ $v ] };
+	my $t = $tenses[ int( rand( @tenses ) ) ];
 	
 	my $tense_stem = $verbs[ $v ]->{ $t };
 	my $verb_ending = $verbs[ $v ]->{ endings };
 	my $ending = $endings{ $verb_ending }->{ $t }[ $p ];
-	
 	my $stem;
 	
 	# if 2 stems are available: 

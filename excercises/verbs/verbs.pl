@@ -3,115 +3,43 @@ use warnings;
 use utf8;
 binmode(STDOUT, ":utf8");
 
+use Data::Dumper;
+use YAML::XS;
+
+my $conf = YAML::XS::LoadFile('verbs.yaml');
+
 my @pers = qw / εγώ εσύ αυτός εμείς εσείς αυτοί /;
-my @verbs =
-(
-	{
-		present      => [ 'τρώ' ],
-		past_simple  => [ 'έφαγ' , 'φάγα' ], # ok
-		past_perfect => [ 'έτρωγ', 'τρώγα' ],
-		endings      => 1,
-	},
-	{
-		present      => [ 'κατοικ' ],
-		past_simple  => [ 'κατοίκησ', 'κατοικήσ' ], # ok
-		past_perfect => [ 'κατοικούσ' ],
-		endings      => 2,
-	},
-	{
-		present      => [ 'δουλεύ' ],
-		past_simple  => [ 'δούλεψ', 'δουλέψ' ], # ok
-		past_perfect => [ 'δούλευ', 'δουλεύ' ],
-		endings      => 3,
-	},
-	{
-		present      => [ 'πίν' ],
-		past_simple  => [ 'ήπι' ], # ok
-		past_perfect => [ 'έπιν', 'πίν' ],
-		endings      => 3,
-	},
-	{
-		present      => [ 'γράφ' ],
-		past_simple  => [ 'έγραψ', 'γράψ' ], # ok
-		past_perfect => [ 'έγραφ', 'γράφ' ],
-		endings      => 3,
-	},
-	{
-		present      => [ 'αποφοιτ' ],
-		# past_simple  => [ 'αποφοίτησ', 'αποφοιτήσ' ], # ok
-		past_perfect => [ 'αποφοιτούσ' ],
-		endings      => 2,
-	},
-	{
-		present      => [ 'διαβάζ' ],
-		# past_simple  => [ 'διάβασ', 'διαβάσ' ], # not sure...
-		past_perfect => [ 'διάβαζ', 'διαβάζ' ],
-		endings      => 3,
-	},
-	{
-		present      => [ 'πηγαίν' ],
-		past_simple  => [ 'πήγ'  ], # ok
-		past_perfect => [ 'πήγαιν', 'πηγαίν' ],
-		endings      => 3,
-	},
-	{
-		present      => [ 'αποκτ' ],
-		past_simple  => [ 'απόκτησ', 'αποκτήσ' ], # ok
-		past_perfect => [ 'αποκτούσ', ],
-		endings      => 2,
-	},
-	{
-		present      => [ 'παρακολουθ' ],
-		#past_simple  => [ 'παρακολούθησ', 'παρακολουθήσ' ],
-		past_perfect => [ 'παρακολούθουσ', 'παρακολουθούσ' ],
-		endings      => 2,
-	},
-	{
-		present      => [ 'μιλά' ],
-		#past_simple  => [ 'μίλησ', 'μιλήσ' ],
-		past_perfect => [ 'μιλούσ', ],
-		endings      => 1,
-	},
-);
-
-my %endings = (
-	'1' => {
-		present      => [ qw/ ω ς  ει με τε νε / ],
-		past_simple  => [ qw/ α ες ε  με τε αν / ],
-		past_perfect => [ qw/ α ες ε  με τε αν / ],
-	},
-	'2' => {
-		present      => [ qw/ ώ είς εί ούμε είτε ούν /],
-		past_simple  => [ qw/ α ες  ε  αμε  ατε  αν /],
-		past_perfect => [ qw/ α ες  ε  αμε  ατε  αν /],
-	},
-	'3' => {
-		present      => [ qw/ ω εις  ει ουμε ετε ουν /],
-		past_simple  => [ qw/ α ες   ε  αμε  ατε αν /],
-		past_perfect => [ qw/ α ες   ε  αμε  ατε αν /],
-	},
-);
-
 my @sexes = qw/ m f /;
 
-use  Data::Dumper ;
-#print Dumper(\%endings);
+my $verbs = $conf->{ verbs };
+my $endings = $conf->{ endings };
 
-foreach(1..120)
+#print Dumper($verbs);
+#print Dumper($endings);
+
+foreach(1..143)
 {
-	my $v = int( rand( @verbs ) );
+	my $i = int( rand( @$verbs ) );
+	my $verb = @$verbs[ $i ];
 	my $p = int( rand( @pers ) );
 	
 	# pick one of the verb's available tenses
 	my @tenses = grep {
-	                 $_ ne 'endings' and $_ ne 'past_perfect'
+	                 $_ ne 'past_cont'
 	             } 
-	             keys %{ $verbs[ $v ] };
+	             keys %{ $verb->{ stem } };
 	my $t = $tenses[ int( rand( @tenses ) ) ];
+
+	#print Dumper($verb);
+	#print "$t\n";
 	
-	my $tense_stem = $verbs[ $v ]->{ $t };
-	my $verb_ending = $verbs[ $v ]->{ endings };
-	my $ending = $endings{ $verb_ending }->{ $t }[ $p ];
+	my $tense_stem = $verb->{ stem }->{ $t };  
+	my $verb_ending = $verb->{ ending };
+	my $ending = $endings->{ $verb_ending }->{ $t }[ $p ];
+
+	#print "$verb_ending - $ending\n";
+	#print Dumper( $endings->{ $verb_ending }->{ $t } );
+
 	my $stem;
 	
 	# if 2 stems are available: 

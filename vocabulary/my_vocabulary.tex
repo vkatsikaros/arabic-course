@@ -2,11 +2,6 @@
 
 % Compile with xelatex
 
-% fonts
-\usepackage[cm-default]{fontspec}
-\setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
-
 %\usepackage{longtable} % Doesn't not work with \documentclass[twocolumns] - avoid
 \usepackage{supertabular,booktabs}
 
@@ -21,6 +16,10 @@
 \setmainlanguage{english}
 \setotherlanguage{arabic}
 \newcommand{\ar}[1]{\textarabic{#1}}
+
+% fonts
+\setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
 
 % sign for nouns with plural
 \newcommand{\pl}{\raisebox{0.15ex}{\footnotesize ◍}}

@@ -1,7 +1,4 @@
 \documentclass[twocolumn,a4paper]{article}
-\usepackage[cm-default]{fontspec}
-\setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
 \usepackage{supertabular,booktabs}
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{array}
@@ -10,8 +7,12 @@
 \setmainlanguage{english}
 \setotherlanguage{arabic}
 \newcommand{\ar}[1]{\textarabic{#1}}
+\setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
+\newcommand{\prth}[1]{\textenglish{)}#1\textenglish{(}}
 \newcommand{\pl}{\raisebox{0.15ex}{\footnotesize ◍}}
 \newcommand{\normpl}[1]{\ar{ #1 ات }}
+\newcommand{\mfnormpl}[1]{\ar{ #1 ونين }}
 \newcommand{\vrf}{\raisebox{0.15ex}{\footnotesize ◉}}
 \newcommand{\vr}{\raisebox{0.15ex}{\footnotesize ◎}}
 \newcommand{\mas}{\raisebox{0.15ex}{\footnotesize ◫}}
@@ -27,21 +28,21 @@
  جديد  
  بيت  بيوت  
  صديق  اصدقاء  
- صديقة  صديقات 
+ صديقة  صديقات
  طالب  طلاب  
  كتاب  كتب  
  استاذ  اساتذة  
- استاذة  استاذات 
+ استاذة  استاذات
  رجل  
  عمل  
  دفتر  
  اسم  اسماء  
  مدينة  
  منطقة  
- هواية  هوايات 
+ هواية  هوايات
  سباحة  
  بلد  
- لغة  لغات 
+ لغة  لغات
  عربية  
  و  
  مدرسة  مدارس  
@@ -82,7 +83,7 @@
  هذه  
  قهوة  
  دكتور  
- ساعة  ساعات 
+ ساعة  ساعات
  في  
  نفس ال  
  صف  صفوف  
@@ -95,7 +96,7 @@
 
 3
 
-\textarabic{ حمام  
+\textarabic{ حمام  حمامات
  باب  
  شارع  
  خبز  
@@ -157,12 +158,12 @@
  تدريس  
  رسالة  رسائل  
  زوج  أزواج  
- زوجة  زوجات 
+ زوجة  زوجات
  علم  علوم  
  سياسة  
  العلوم السّياسيّة  
  ولد  اولاد  
- عائلة  عائلات 
+ عائلة  عائلات
  سنافر  
  قطة  قطط  
  كلب  كلاب   
@@ -182,7 +183,7 @@
  تذكّر  اتذكّر  
  تذكر  
  زميل  زملاء  
- زميلة  زميلات 
+ زميلة  زميلات
  سافر  يسافر الى  
  سفر الى  
  طفولة  
@@ -195,7 +196,7 @@
  كلام  
  الشرق الاوسط  
  جد  
- كلمة  كلمات 
+ كلمة  كلمات
  امتحان  
  صعب  
  سهل  
@@ -257,7 +258,7 @@
  اليوم  
  فــ  
  بالنسبة لـ  
- محاضرة  محاضرات 
+ محاضرة  محاضرات
  ادارة اﻷعمال  
  ذلك  تلك  
  معيد  و  
@@ -298,7 +299,7 @@
  اكبر هم  
  كانت  
  ماتت  
- وزارة  وزارات 
+ وزارة  وزارات
  بعد  
  بكالوريوس  
  ماجستير  
@@ -427,7 +428,7 @@
  في ايّ ساعة  
  عمر  
  سعيد  
- نام  ينام  
+ نام  نمت  ينام  
  نوم  
  كرة السلة  
  شمس  
@@ -454,26 +455,34 @@
  اكثر  
  ليلة  ليالي  
  الليلة  
-}\clearpage
-\textarabic{
- واحد  واحدة  
- اثنان  اثنين  
- ثلاث  ة  
- اربع  ة  
- خمس  ة  
- ستّ  ة  
- سنع  ة  
- ثماني  ة  
- تسع  ة  
- عشْر  عشرة  
- احد عشر  
- اثنا عشر  
- ثلاثة عشر  
- الاوّل  اولى  
- الثاني  ة  
- الرابع  
- سادس  
-}\clearpage
+ جاء \prth{جئت يجيء الى } 
+ مجيء الى  
+ صحا  صحوت  يصحو  
+ اقام \prth{اقمت يقيم } 
+ اقامة  
+ استمتع  يستمتع بـ  
+ استمتاع بـ  
+ يمكن ان  
+ يمكنني ان  
+ موعد  مواعيد  
+ ملك  ملوك  
+ قصد  يقصد  
+ قصد  
+ تبادل  يتبادل  
+ تبادل  
+ تجربة  تجارب  
+ خجل  
+}
+
+13
+
+\textarabic{ صيدلية  صيدليات
+ عندماً  
+ فندق  فنادق  
+ مرّة  مرّات
+ مهندس  مهندسون
+  مهندسين
+ }\clearpage
 \textarabic{
  إسبانيا  
  البرتغال  

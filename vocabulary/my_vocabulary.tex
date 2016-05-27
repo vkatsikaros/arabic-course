@@ -21,12 +21,20 @@
 \setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
 \newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
 
+% Droid Arabic Naskh doesn't have Unicode Block "Basic Latin"'s
+% LEFT PARENTHESIS (U+0028) and RIGHT PARENTHESIS (U+0029)
+% so we need a workaround in order to have parenthesis
+\newcommand{\prth}[1]{\textenglish{)}#1\textenglish{(}}
+
 % sign for nouns with plural
 \newcommand{\pl}{\raisebox{0.15ex}{\footnotesize ◍}}
 % ⊕ 🀆 🀱 ◫ □ ✪ ⟐ % other interesting unicode symbols
 
 % append normal plural to nouns
 \newcommand{\normpl}[1]{\ar{ #1، ات }}
+
+% normal masculine and feminine plural
+\newcommand{\mfnormpl}[1]{\ar{ #1، ون،ين }}
 
 % sign for verbs with both present and past tense (verb full)
 \newcommand{\vrf}{\raisebox{0.15ex}{\footnotesize ◉}}
@@ -434,7 +442,7 @@ master (MSc)   & \ar{ ماجِستير } \\
 ευτυχισμένος                 & \ar{ سعيد } \\
 κοιμάμαι \vrf                & \ar{ نامَ ، نِمتُ ، يَنامُ } \\
 ύπνος \mas                   & \ar{ نَوم } \\
-μπάσκετ                      & \ar{ كُرة السُلة } \\
+μπάσκετ                      & \ar{ كُرة السَلة } \\
 ήλιος                        & \ar{ شَمس } \\
 ασθένια \pl                  & \ar{ مَرض ، امراض } \\
 κοτόπουλο                    & \ar{ دَجاج } \\
@@ -457,10 +465,10 @@ master (MSc)   & \ar{ ماجِستير } \\
 περισσότερος                 & \ar{ اكثَر } \\
 νύχτα \pl                    & \ar{ لَيلة ، ليالي } \\
 απόψε                        & \ar{ اللَيلة } \\
-έρχομαι \vrf                 & \ar{ جاء ، جِئتُ ، يَجيء اِلى } \\
+έρχομαι \vrf                 & \ar{ جاء \prth{جِئتُ} يَجيء اِلى } \\
 το να έρχομαι \mas           & \ar{ مَجيء اِلى } \\
 ξυπνώ \vrf                   & \ar{ صَحا ، صحَوتُ ، يَصحو } \\
-διαμένω \vrf                 & \ar{ اقامَ ، اقَمتُ ، يُقيمُ } \\
+διαμένω \vrf                 & \ar{ اقامَ \prth{اقَمتُ} يُقيمُ } \\
 διαμονή \mas                 & \ar{ اِقامة } \\
 απολαμβάνω \vrf              & \ar{ اِستَمتَع ، يَستَمتِعُ بِـ } \\
 διασκέδαση \mas              & \ar{ اِستِمتاع بِـ } \\
@@ -468,28 +476,21 @@ master (MSc)   & \ar{ ماجِستير } \\
 είναι πιθανό εγώ,εσύ,κτλ     & \ar{ يُمكِنُني ان } \\
 ραντεβού, fixed time \pl     & \ar{ مَوعِد ، مَواعيد } \\
 βασιλιάς \pl                 & \ar{ مَلِك ، مُلوك } \\
+σκοπεύω να/εννοώ  \vrf       & \ar{ قَصَدَ ، يَقصِدُ } \\
+σκοπός \mas                  & \ar{ قَصَد } \\
+ανταλλάσω \vrf               & \ar{ تَبادَلَ ، يَتَبادَلُ } \\
+το να ανταλλάσω \mas         & \ar{ تَبادَل } \\
+εμπειρία/περιπετεια \pl      & \ar{ تَجرِبة ، تَجارِب } \\
+ντροπή                       & \ar{ خَجَل } \\
+φαρμακείο \pl                & \normpl{ صَيدَلية } \\
+όταν                         & \ar{ عِندَماً } \\
+ξενοδοχείο \pl               & \ar{ فُندُق ، فَنادِق } \\
+once                         & \normpl{ مَرّة } \\
+μηχανικός \pl                & \mfnormpl{ مُهَندِس } \\
 
 % & \ar{  } \\
 % & \ar{  } \\
 
-\end{supertabular}
-
-\clearpage
-
-\begin{supertabular}{ c c c }
-1              & \ar{ واحِد ، واحِدة }  & \ar{ اوّل ، اُولى } \\
-2              & \ar{ اِثنان ، اِثنَين } & \ar{ الثاني ، ة } \\
-3              & \ar{ ثَلاثَ ، ة }       & \ar{ الثاني ، ة } \\
-4              & \ar{ اربَع ، ة }      & \ar{ الرابِع ، ة } \\
-5              & \ar{ خَمسَ ، ة }       & \ar{ الخامِس ، ة } \\
-6              & \ar{ سِتَّ ، ة }        & \ar{ السادِس ، ة } \\
-7              & \ar{ سَنع ، ة }       & \ar{ السابِع ، ة } \\
-8              & \ar{ ثَمانيَ ، ة }     & \ar{ الثامِن ، ة } \\
-9              & \ar{ تِسع ، ة }       & \ar{ التاسِع ، ة } \\
-10             & \ar{ عشْرَ ، عشَرة }    & \ar{ العاشِر ، ة } \\
-11             & \ar{ احَد عشَرَ }       & \ar{ الحادي عشَر ، ة } \\
-12             & \ar{ اِثنا عشَرَ }      & \ar{ الثاني عشَر ، ة } \\
-13             & \ar{ ثَلاثة عشَرَ }      & \ar{ الثالِث عشَر ، ة } \\
 \end{supertabular}
 
 \clearpage

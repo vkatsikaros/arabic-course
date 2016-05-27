@@ -73,9 +73,9 @@ while (my $line = <$fh_in>) {
 
 			my $plural = $word;
 			$plural =~ s/\N{ARABIC LETTER TEH MARBUTA}$//;
-			$plural .= "\N{ARABIC LETTER ALEF}\N{ARABIC LETTER TEH} \n";
+			$plural .= "\N{ARABIC LETTER ALEF}\N{ARABIC LETTER TEH}\n";
 
-			$line .= "$word $plural";
+			$line = "$word $plural";
 			$normpl = 0;
 		}
 
@@ -86,8 +86,8 @@ while (my $line = <$fh_in>) {
 
 			my $plural_stem = $word;
 			$plural_stem =~ s/\N{ARABIC LETTER TEH MARBUTA}$//;
-			my $masc = $plural_stem . "\N{ARABIC LETTER WAW}\N{ARABIC LETTER NOON} ";
-			my $fem = $plural_stem . "\N{ARABIC LETTER YEH}\N{ARABIC LETTER NOON} ";
+			my $masc = $plural_stem . "\N{ARABIC LETTER WAW}\N{ARABIC LETTER NOON}\n";
+			my $fem = $plural_stem . "\N{ARABIC LETTER YEH}\N{ARABIC LETTER NOON}\n";
 
 			$line = "$word $masc $fem ";
 			$mfnormpl = 0;

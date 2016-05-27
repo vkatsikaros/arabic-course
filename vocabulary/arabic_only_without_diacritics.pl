@@ -15,6 +15,7 @@ open( my $fh_out, ">:encoding(UTF-8)", 'my_vocabulary_no_diacritics.tex') or die
 my $in_table = 0;
 my $start_table = 0;
 my $normpl = 0;
+my $mfnormpl = 0;
 my $pages = 2;
 
 while (my $line = <$fh_in>) {
@@ -56,6 +57,9 @@ while (my $line = <$fh_in>) {
 		if( $line =~ s/^.*\\normpl\{// ) {
 			$normpl = 1;
 		}
+		if( $line =~ s/^.*\\mfnormpl\{// ) {
+			$mfnormpl = 1;
+		}
 		# remove closing }
 		$line =~ s/}//;
 		# remove the table new row and eveything till the end of line
@@ -65,10 +69,28 @@ while (my $line = <$fh_in>) {
 		if( $normpl ) {
 			chomp $line ;
 			$line =~ s/\s*$//;
-			$line .= ' ' . $line;
-			$line =~ s/\N{ARABIC LETTER TEH MARBUTA}$//;
-			$line .= "\N{ARABIC LETTER ALEF}\N{ARABIC LETTER TEH} \n";
+			my $word = $line;
+
+			my $plural = $word;
+			$plural =~ s/\N{ARABIC LETTER TEH MARBUTA}$//;
+			$plural .= "\N{ARABIC LETTER ALEF}\N{ARABIC LETTER TEH} \n";
+
+			$line .= "$word $plural";
 			$normpl = 0;
+		}
+
+		if( $mfnormpl ) {
+			chomp $line ;
+			$line =~ s/\s*$//;
+			my $word = $line;
+
+			my $plural_stem = $word;
+			$plural_stem =~ s/\N{ARABIC LETTER TEH MARBUTA}$//;
+			my $masc = $plural_stem . "\N{ARABIC LETTER WAW}\N{ARABIC LETTER NOON} ";
+			my $fem = $plural_stem . "\N{ARABIC LETTER YEH}\N{ARABIC LETTER NOON} ";
+
+			$line = "$word $masc $fem ";
+			$mfnormpl = 0;
 		}
 	}
 

@@ -1,0 +1,92 @@
+\documentclass[a4paper]{article}
+
+% Compile with xelatex
+
+% fonts
+\usepackage[cm-default]{fontspec}
+\setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.7]{Droid Arabic Naskh} % nice arabic chars
+
+% line spacing
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{array}
+\renewcommand{\arraystretch}{2}%
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+% TODO check: table row height?
+\usepackage{array}
+\usepackage{leading}
+
+\usepackage{tikz}
+% arguments: size, size, pos
+\newcommand{\highl}{
+% mbox is simply for protection against tikz inline breaking
+% when \setotherlanguage{arabic} is used
+\mbox{
+	\begin{tikzpicture}
+	\fill[gray!40, xshift=-2cm, yshift=-2cm] (0,0) rectangle (0.5,1) ;
+	\end{tikzpicture}
+}}
+
+% to force a new line in empty \item desciption
+\newcommand{\nl}{\mbox{}\\[-1.5\baselineskip]}
+
+% different langiages: greek, arabic
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newcommand{\ar}[1]{\textarabic{#1}}
+
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\tu}[1]{\underline{#1}}
+
+\begin{document}
+
+\input{sections/word_creation.tex}
+\input{sections/articles.tex}
+\input{sections/extra_symbols.tex}
+
+\clearpage
+\input{sections/possessive.tex}
+\input{sections/personal_pronoun.tex}
+
+\clearpage
+\input{sections/sentence_creation.tex}
+\input{sections/define_word.tex}
+\input{sections/nationalities.tex}
+
+\clearpage
+\input{sections/have.tex}
+
+\clearpage
+\input{sections/protheseis_vdeles.tex}
+\input{sections/paraksenies_ktitikis.tex}
+\input{sections/diikos.tex}
+\input{sections/koul.tex}
+\input{sections/hada_hadihi.tex}
+
+\clearpage
+\input{sections/kana.tex}
+
+\input{sections/liana_bisabab_li.tex}
+
+\input{sections/masdar.tex}
+\input{sections/fihi_fiha.tex}
+
+\input{sections/ahsan.tex}
+\input{sections/misc.tex}
+
+\clearpage
+\input{sections/numbers.tex}
+
+\clearpage
+\input{sections/tense_present.tex}
+\input{sections/tense_past.tex}
+\input{sections/ypotaktiki.tex}
+
+\clearpage
+\input{sections/exoidi.tex}
+
+\end{document}

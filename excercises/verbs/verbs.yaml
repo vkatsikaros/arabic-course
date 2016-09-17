@@ -1,120 +1,186 @@
 
 verbs:
     - stem:
-        present:   [ τρώ         ]
-        past:      [ έφαγ,  φάγα  ] 
-        past_cont: [ έτρωγ, τρώγα ]
-      ending: 1
-      
-    - stem:
-        present:   [ κατοικ            ]
+        present:   [ κατοικ             ]
         past:      [ κατοίκησ, κατοικήσ ] 
-        past_cont: [ κατοικούσ         ]
+        past_cont: [ κατοικούσ          ]
       ending: 2
-      
     - stem:
-        present:   [ δουλεύ        ]
+        present:   [ δουλεύ         ]
         past:      [ δούλεψ, δουλέψ ] 
         past_cont: [ δούλευ, δουλεύ ]
       ending: 3
-
     - stem:
-        present:   [ πίν      ]
-        past:      [ ήπι      ] 
-        past_cont: [ έπιν, πίν ]
-      ending: 3
-      
-    - stem:
-        present:   [ γράφ       ]
+        present:   [ γράφ        ]
         past:      [ έγραψ, γράψ ] 
         past_cont: [ έγραφ, γράφ ]
       ending: 3
-
     - stem:
-        present:   [ αποφοιτ             ]
-        past:      [ αποφοίτησ, αποφοιτήσ ] 
-        past_cont: [ αποφοιτούσ          ]
-      ending: 2
-      
-    - stem:
-        present:   [ διαβάζ        ]
-        past:      [ διάβασ, διαβάσ ] 
-        past_cont: [ διάβαζ, διαβάζ ]
+        present:   [ σπουδάζ          ]
+        past:      [ σπούδασ, σπουδάσ ] 
+        past_cont: [ σπούδαζ, σπουδάζ ] 
       ending: 3
-      
     - stem:
-        present:   [ πηγαίν        ]
-        past:      [ πήγ           ] 
-        past_cont: [ πήγαιν, πηγαίν ]
+        present:   [ πίν       ]
+        past:      [ ήπι       ] 
+        past_cont: [ έπιν, πίν ]
       ending: 3
-      
     - stem:
-        present:   [ αποκτ           ]
-        past:      [ απόκτησ, αποκτήσ ] 
-        past_cont: [ αποκτούσ        ]
-      ending: 2
-
+        present:   [ γνωρίζ         ]
+        past:      [ γνώρισ, γνωρίσ ] 
+        past_cont: [ γνώριζ, γνωρίζ ]
+      ending: 3
     - stem:
-        present:   [ παρακολουθ                  ]
+        present:   [ διδάσκ         ]
+        past:      [ δίδαξ, διδάξ   ] 
+        past_cont: [ δίδασκ, διδάσκ ] 
+      ending: 3
+    - stem:
+        present:   [ αποστηθίζ            ]
+        past:      [ αποστήθισ, αποστηθίσ ] 
+        past_cont: [ αποστήθιζ, αποστηθίζ ] 
+      ending: 3
+    - stem:
+        present:   [ θυμ              ]
+        past:      [ θυμήθηκ, θυμηθήκ ] 
+        past_cont: [ θυμό             ] 
+      ending: 4
+    - stem:
+        present:   [ ταξιδεύ          ]
+        past:      [ ταξίδεψ, ταξιδέψ ] 
+        past_cont: [ ταξιδεύ          ] 
+      ending: 3
+    - stem:
+        present:   [ παρακολουθ                   ]
         past:      [ παρακολούθησ, παρακολουθήσ   ] 
         past_cont: [ παρακολούθουσ, παρακολουθούσ ] 
       ending: 2
-
     - stem:
-        present:   [ μιλά        ]
+        present:   [ μιλά         ]
         past:      [ μίλησ, μιλήσ ] 
-        past_cont: [ μιλούσ      ] 
+        past_cont: [ μιλούσ       ] 
       ending: 1
-      
     - stem:
-        present:   [ διδάσκ        ]
-#        past:      [  ] 
-#        past_cont: [  ] 
+        present:   [ διαβάζ         ]
+        past:      [ διάβασ, διαβάσ ] 
+        past_cont: [ διάβαζ, διαβάζ ]
       ending: 3
-
     - stem:
-        present:   [ σπουδάζ        ]
-#        past:      [  ] 
-#        past_cont: [  ] 
-      ending: 3
-      
-    - stem:
-        present:   [ αποστηθίζ ]
-#        past:      [  ] 
-#        past_cont: [  ] 
-      ending: 3
-
-    - stem:
-        present:   [ θυμ ]
-#        past:      [  ] 
-#        past_cont: [  ] 
-      ending: 4
-      
-    - stem:
-        present:   [ ταξιδεύ ]
-#        past:      [  ] 
-#        past_cont: [  ] 
+        present:   [ τρώ          ]
+        past:      [ έφαγ,  φάγα  ] 
+        past_cont: [ έτρωγ, τρώγα ]
       ending: 1
-
     - stem:
-        present:   [ νιώθ ]
-#        past:      [  ] 
-#        past_cont: [  ] 
-      ending: 1
-
+        present:   [ νιώθ        ]
+        past:      [ ένιωθ, νιώθ ] 
+        past_cont: [ ένιωσ, νιώσ ] 
+      ending: 3
+    - stem:
+        present:   [ αποκτ            ]
+        past:      [ απόκτησ, αποκτήσ ] 
+        past_cont: [ αποκτούσ         ]
+      ending: 2
+    - stem:
+        present:   [ αποφοιτ              ]
+        past:      [ αποφοίτησ, αποφοιτήσ ] 
+        past_cont: [ αποφοιτούσ           ]
+      ending: 2
+    - stem:
+        present:   [ πηγαίν         ]
+        past:      [ πήγ            ] 
+        past_cont: [ πήγαιν, πηγαίν ]
+      ending: 3
+    - stem:
+        present:   [ ακού          ]
+        past:      [ άκουσ, ακούσ  ] 
+        past_cont: [ άκουγ, ακούγ  ]
+      ending: 3
+    - stem:
+        present:   [ μπαίν          ]
+        past:      [ μπήκ           ] 
+        past_cont: [ έμπαιν, μπαίν  ]
+      ending: 3
+    - stem:
+        present:   [ μελετ             ]
+        past:      [ μελέτησ, μελετήσ  ] 
+        past_cont: [ μελετούσ          ]
+      ending: 5
     - stem:
         present:   [ αγαπ ]
 #        past:      [  ] 
 #        past_cont: [  ] 
       ending: 5
+    - stem:
+        present:   [ αρν               ]
+        past:      [ αρνήθηκ, αρνηθήκ  ] 
+        past_cont: [ αρνού             ]
+      ending: 6
+    - stem:
+        present:   [ θέλ             ]
+        past:      [ θέλησ, θελήσ    ] 
+        past_cont: [ ήθελ, θέλα      ]
+      ending: 3
+    - stem:
+        present:   [ βοηθ             ]
+        past:      [ βοήθησ, βοηθήσ   ] 
+        past_cont: [ βοηθούσ          ]
+      ending: 2
+    - stem:
+        present:   [ εντάσ                ]
+        past:      [ εντάχθηκ, ενταχθήκ   ] 
+        past_cont: [ εντασό               ]
+      ending: 7
+    - stem:
+        present:   [ πετυχαίν             ]
+        past:      [ πέτυχ, πετύχ         ] 
+        past_cont: [ πετύχαιν, πετυχαίν   ]
+      ending: 3
+    - stem:
+        present:   [ ξεκιν              ]
+        past:      [ ξεκίνησ, ξεκινήσ   ] 
+        past_cont: [ ξεκινούσ           ]
+      ending: 5
+    - stem:
+        present:   [ βγαίν            ]
+        past:      [ βγήκ             ] 
+        past_cont: [ έβγαιν, βγαίν    ]
+      ending: 3
+    - stem:
+        present:   [ καπνίζ             ]
+        past:      [ κάπνισ, καπνίσ     ] 
+        past_cont: [ κάπνιζ, καπνίζ     ]
+      ending: 3
+    - stem:
+        present:   [ μπορ             ]
+        past:      [ μπόρεσ, μπορέσ   ] 
+        past_cont: [ μπορούσ          ]
+      ending: 2
+    - stem:
+        present:   [ επιστρέφ             ]
+        past:      [ επέστρεψ, επιστρέψ   ] 
+        past_cont: [ επέστρεφ, επιστρέφ   ]
+      ending: 3
+    - stem:
+        present:   [ επιστρέφ             ]
+        past:      [ επέστρεψ, επιστρέψ   ] 
+        past_cont: [ επέστρεφ, επιστρέφ   ]
+      ending: 3
+    - stem:
+        present:   [ παίζ          ]
+        past:      [ έπαιξ, παίξ   ] 
+        past_cont: [ έπαιζ, παίξ   ]
+      ending: 3
+    - stem:
+        present:   [ κατεβαίν             ]
+        past:      [ κατέβηκ,  κατεβήκ    ] 
+        past_cont: [ κατέβαιν, κατεβαίν   ]
+      ending: 3
 
-     
 endings:
     1:
         present:   [ ω, ς,  ει,  με,  τε,  νε, ]
         past:      [ α, ες, ε,   με,  τε,  αν, ]
         past_cont: [ α, ες, ε,   με,  τε,  αν, ]
-
     2:
         present:   [ ώ, είς,  εί,  ούμε,  είτε,  ούν, ]
         past:      [ α, ες,   ε,   αμε,   ατε,   αν, ]
@@ -124,10 +190,18 @@ endings:
         past:      [ α, ες,   ε,   αμε,   ατε,  αν, ]
         past_cont: [ α, ες,   ε,   αμε,   ατε,  αν, ]
     4:
-        present:   [ άμαι, άσαι,  άται, όμαστε, όσαστε, ούνται ]
-#        past:      [ α ες   ε  αμε  ατε αν ]
-#        past_cont: [ α ες   ε  αμε  ατε αν ]
+        present:   [ άμαι,  άσαι,  άται, όμαστε, άστε,   ούνται ]
+        past:      [ α,     ες,    ε,    αμε,    ατε,    αν     ]
+        past_cont: [ μουν,  σουν,  ταν,  μασταν, σασταν, ύνταν  ]
     5:
         present:   [ ώ,  άς,  ά,  άμε,  άτε,  ούν ]
-#        - past:      [ α  ες  ε  αμε  ατε  αν ]
-#        - past_cont: [ α  ες  ε  αμε  ατε  αν ]
+        past:      [ α,  ες,  ε,  αμε,  ατε,  αν  ]
+        past_cont: [ α,  ες,  ε,  αμε,  ατε,  αν  ]
+    6:
+        present:   [ ούμαι,  είσαι,  είται, ούμαστε, είστε,   ούνται ]
+        past:      [ α,      ες,     ε,     αμε,     ατε,     αν     ]
+        past_cont: [ μουν,  σουν,  ταν,  μασταν, σασταν, ύνταν  ]
+    7:
+        present:   [ ομαι,  εσαι,  εται, ομαστε, εστε,   ονται  ]
+        past:      [ α,     ες,    ε,    αμε,    ατε,    αν     ]
+        past_cont: [ μουν,  σουν,  ταν,  μασταν, σασταν, ονταν  ]

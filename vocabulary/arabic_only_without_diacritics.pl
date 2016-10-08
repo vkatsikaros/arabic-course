@@ -40,6 +40,14 @@ while (my $line = <$fh_in>) {
 		)//gx;
 
 	# remove table begin/end
+	if( $line =~ s/\\begin\{mpsupertabular\}\{ c c \}//g ) {
+		$in_table = 1;
+		$start_table = 1;
+	}
+	if( $line =~ s/\\end\{mpsupertabular\}//g ) {
+		print $fh_out "}"; # close: \textarabic{
+		$in_table = 0;
+	}
 	if( $line =~ s/\\begin\{supertabular\}\{ c c \}//g ) {
 		$in_table = 1;
 		$start_table = 1;

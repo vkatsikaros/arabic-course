@@ -52,7 +52,10 @@
 % ensure twocolumns are spaced out so that they do not overlap
 \setlength\tabcolsep{1pt}
 
-\begin{mpsupertabular}{ p{0.5\textwidth} c }
+% new column P: paragraph column with horizontal centering
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{mpsupertabular}{ P{0.5\textwidth} c }
 
 % ΠΑ: Πληθυντικός Αόριστη
 % ΠΟ: Πληθυντικός Ορισμένη

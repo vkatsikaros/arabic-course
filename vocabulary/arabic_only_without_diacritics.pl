@@ -40,7 +40,7 @@ while (my $line = <$fh_in>) {
 		)//gx;
 
 	# remove table begin/end
-	if( $line =~ s/\\begin\{mpsupertabular\}\{ c c \}//g ) {
+	if( $line =~ s/\\begin\{mpsupertabular\}\{.*$//g ) {
 		$in_table = 1;
 		$start_table = 1;
 	}

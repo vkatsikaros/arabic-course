@@ -9,7 +9,7 @@ Install tex stuff on debian based systems:
 	sudo apt-get install texlive-full # this might take a while
 	sudo apt-get install fonts-hosny-amiri fonts-kacst-one fonts-arabeyes  fonts-sil-scheherazade # arabic fonts
 
-Use XeLaTeX to compile the documents.
+Use XeLaTeX to compile the documents. Install Droid Arabic Naskh from http://fonts.gstatic.com/ea/droidarabicnaskh/v7/download.zip
 
 ## Contributing
 

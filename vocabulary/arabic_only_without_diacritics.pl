@@ -59,6 +59,8 @@ while (my $line = <$fh_in>) {
 
 	# in table remove greek and any table latex formatting
 	if( $in_table ) {
+		# remove vrform command
+		$line =~ s/\\vrform\{\d{1,2}\}//g;
 		# remove everything up to \ar{
 		$line =~ s/^.*\\ar\{//g;
 		# some lines do not have \ar{ but \normpl{ . Remove that too

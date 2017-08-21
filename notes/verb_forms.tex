@@ -1,0 +1,188 @@
+\documentclass[a4paper]{article}
+
+% Compile with xelatex
+\usepackage{supertabular,booktabs}
+
+\usepackage[a4paper, landscape, margin=1in]{geometry}
+
+% TODO check: table row height?
+\usepackage{array}
+\usepackage{leading}
+
+% different langiages: greek, arabic
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newcommand{\ar}[1]{\textarabic{#1}}
+
+% fonts
+\setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
+
+% new column P: paragraph column with horizontal centering
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{document}
+
+% increase vertical space between rows
+\renewcommand*{\arraystretch}{3}
+
+\begin{mpsupertabular}{
+    P{2cm}   % past example
+    P{0.5cm} % past 5
+    P{0.5cm} % past 4
+    P{0.5cm} % past 3
+    P{0.5cm} % past 2
+    l        % past 1
+    P{2cm}   % present example
+    P{0.5cm} % present 5
+    P{0.5cm} % present 4
+    P{0.5cm} % present 3
+    P{0.5cm} % present 2
+    l        % present 1
+    P{1cm}   % form number
+}
+
+%%% 1  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يطبُحُ }&         % past example
+                   &         % past 5
+\textarabic{ ــُـ } &         % past 4
+*                  &         % past 3
+\textarabic{ ــْـ } &         % past 2
+\textarabic{ يـ }  &         % past 1
+\textarabic{ طَبَحَ } &         % present example
+                   &         % present 5
+                   &         % present 4
+\textarabic{ ـــ } &         % present 3
+ *                 &         % present 2
+\textarabic{ ـــ } &         % present 1
+             1 \\
+%%% 2  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يُدَرِّسُ }&         % past example
+                   &         % past 5
+\textarabic{ ــُـ } &         % past 4
+\textarabic{ ــِّـ } &         % past 3
+\textarabic{ ـــ } &         % past 2
+\textarabic{ يُـ }  &         % past 1
+\textarabic{ دَرَّسَ } &         % present example
+                   &         % present 5
+                   &         % present 4
+\textarabic{ ـــ } &         % present 3
+\textarabic{ ــّـ } &         % present 2
+\textarabic{ ـــ } &         % present 1
+             2 \\
+%%% 3  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يُشاهِدُ } &         % past example
+\textarabic{ ــُـ }   &         % past 5
+\textarabic{ ــِـ }   &         % past 4
+\textarabic{ ا }     &         % past 3
+\textarabic{ ــْـ }   &         % past 2
+\textarabic{ يُـ }    &         % past 1
+\textarabic{ شاهَدَ }  &         % present example
+                     &         % present 5
+\textarabic{ ـــ }   &         % present 4
+\textarabic{ ـــ }   &         % present 3
+\textarabic{ ا }     &         % present 2
+\textarabic{ ـــ }   &         % present 1
+             3 \\
+%%% 4  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يُرسِلُ }&         % past example
+                   &         % past 5
+\textarabic{ ــُـ } &         % past 4
+\textarabic{ ــِـ } &         % past 3
+\textarabic{ ــْـ } &         % past 2
+\textarabic{ يُـ }  &         % past 1
+\textarabic{ ارسَلَ }&         % present example
+                   &         % present 5
+\textarabic{ ـــ } &         % present 4
+\textarabic{ ـــ } &         % present 3
+\textarabic{ ــْـ } &         % present 2
+\textarabic{ ا }   &         % present 1
+             4 \\
+%%% 5  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يتَذَكَّرُ } &         % past example
+                     &         % past 5
+\textarabic{ ــُـ }   &         % past 4
+\textarabic{ ــّـ }   &         % past 3
+\textarabic{ ـــ }   &         % past 2
+\textarabic{ يـتَـ }  &         % past 1
+\textarabic{ تَذَكَّرَ }  &         % present example
+                     &         % present 5
+\textarabic{ ـــ }   &         % present 4
+\textarabic{ ــّـ }   &         % present 3
+\textarabic{ ـــ }   &         % present 2
+\textarabic{ تَـ }    &         % present 1
+             5 \\
+%%% 6  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يَتَناولُ }  &         % past example
+\textarabic{ ــُـ }     &    % past 5
+\textarabic{ ـــ }     &    % past 4
+\textarabic{ ا }       &    % past 3
+\textarabic{ ــْـ }     &    % past 2
+\textarabic{ يـتَـ }    &    % past 1
+\textarabic{ تَناولَ }   &    % present example
+\textarabic{ ـــ }     &    % present 5
+\textarabic{ ـــ }     &    % present 4
+\textarabic{ ا }       &    % present 3
+\textarabic{ ــْـ }     &    % present 2
+\textarabic{ تَـ }      &    % present 1
+             6 \\
+%%% 7  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يَنقَطِعُ }&    % past example
+                    &    % past 5
+\textarabic{ ــُـ  } &    % past 4
+\textarabic{ ــِـ }  &    % past 3
+\textarabic{ ـــ }  &    % past 2
+\textarabic{ يَنـ }  &    % past 1
+\textarabic{ اِنقَطَعَ }&    % present example
+\textarabic{ ـــ }  &    % present 5
+\textarabic{ ـــ }  &    % present 4
+\textarabic{ ا }    &    % present 3
+\textarabic{ ـــ }  &    % present 2
+\textarabic{ اِنـ }  &    % present 1
+             7 \\
+%%% 8  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يختَلِفُ }  &    % past example
+\textarabic{ ــُـ  }   &    % past 5
+\textarabic{ ــِـ }    &    % past 4
+\textarabic{ ـتـ }    &    % past 3
+\textarabic{ ــْـ }    &    % past 2
+\textarabic{ يـ }     &    % past 1
+\textarabic{ اِختَلَفَ }  &    % present example
+\textarabic{ ـــ }    &    % present 5
+\textarabic{ ـــ }    &    % present 4
+\textarabic{ ـتـ }    &    % present 3
+\textarabic{ ــْـ }    &    % present 2
+\textarabic{ ا }      &    % present 1
+             8  \\
+%%% 9  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&    % past example
+&    % past 5
+&    % past 4
+&    % past 3
+&    % past 2
+&    % past 1
+&    % present example
+&    % present 5
+&    % present 4
+&    % present 3
+&    % present 2
+&    % present 1
+9  \\
+%%% 10  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ يستَعمِلُ }  &    % past example
+                       &    % past 5
+\textarabic{ ــُـ }     &    % past 4
+\textarabic{ ــِـ }     &    % past 3
+\textarabic{ ــْـ }     &    % past 2
+\textarabic{ يَستَـ }    &    % past 1
+\textarabic{ اِستَعمَلَ }  &    % present example
+                       &    % present 5
+\textarabic{ ـــ }     &    % present 4
+\textarabic{ ـــ }     &    % present 3
+\textarabic{ ــْـ }     &    % present 2
+\textarabic{ اِستَـ }    &    % present 1
+             10  \\
+\end{mpsupertabular}
+
+\end{document}

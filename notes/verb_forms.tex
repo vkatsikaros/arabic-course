@@ -3,7 +3,14 @@
 % Compile with xelatex
 \usepackage{supertabular,booktabs}
 
-\usepackage[a4paper, landscape, margin=1in]{geometry}
+\usepackage[
+    a4paper,
+    landscape,
+    top=1.2cm,
+    left=.8cm,
+    bottom=0cm,
+    right=0.8cm,
+]{geometry}
 
 % TODO check: table row height?
 \usepackage{array}
@@ -17,47 +24,70 @@
 
 % fonts
 \setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
-\newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.6]{Droid Arabic Naskh} % nice arabic chars
 
 % new column P: paragraph column with horizontal centering
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 
+\pagenumbering{gobble}
+
 \begin{document}
 
 % increase vertical space between rows
-\renewcommand*{\arraystretch}{3}
+\renewcommand*{\arraystretch}{4.5}
 
 \begin{mpsupertabular}{
-    P{2cm}   % past example
-    P{0.5cm} % past 5
-    P{0.5cm} % past 4
-    P{0.5cm} % past 3
-    P{0.5cm} % past 2
-    l        % past 1
-    P{2cm}   % present example
-    P{0.5cm} % present 5
-    P{0.5cm} % present 4
-    P{0.5cm} % present 3
-    P{0.5cm} % present 2
-    l        % present 1
-    P{1cm}   % form number
+    P{2.5cm}  % masdar example
+    P{0.6cm}  % masdar 6
+    P{0.5cm}  % masdar 5
+    P{0.65cm} % masdar 4
+    P{0.65cm} % masdar 3
+    P{0.5cm}  % masdar 2
+    l         % masdar 1
+    P{2.5cm}  % past example
+    P{0.5cm}  % past 5
+    P{0.5cm}  % past 4
+    P{0.65cm} % past 3
+    P{0.5cm}  % past 2
+    l         % past 1
+    P{2.5cm}  % present example
+    P{0.5cm}  % present 5
+    P{0.5cm}  % present 4
+    P{0.65cm} % present 3
+    P{0.5cm}  % present 2
+    l         % present 1
+    P{0.5cm}  % form number
 }
 
 %%% 1  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+○                  &         % masdar example
+                   &         % masdar 6
+                   &         % masdar 5
+                   &         % masdar 4
+○                  &         % masdar 3
+                   &         % masdar 2
+                   &         % masdar 1
 \textarabic{ يطبُحُ }&         % past example
                    &         % past 5
 \textarabic{ ــُـ } &         % past 4
-*                  &         % past 3
+○                  &         % past 3
 \textarabic{ ــْـ } &         % past 2
 \textarabic{ يـ }  &         % past 1
 \textarabic{ طَبَحَ } &         % present example
                    &         % present 5
                    &         % present 4
 \textarabic{ ـــ } &         % present 3
- *                 &         % present 2
+○                  &         % present 2
 \textarabic{ ـــ } &         % present 1
              1 \\
 %%% 2  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ تَّدريس } &        % masdar example
+                     &         % masdar 6
+\textarabic{ ــْـ }   &         % masdar 5
+\textarabic{ ـيـ }   &         % masdar 4
+\textarabic{ ــْـ }   &         % masdar 3
+\textarabic{ ــْـ }   &         % masdar 2
+\textarabic{ تَّـ }    &         % masdar 1
 \textarabic{ يُدَرِّسُ }&         % past example
                    &         % past 5
 \textarabic{ ــُـ } &         % past 4
@@ -72,6 +102,13 @@
 \textarabic{ ـــ } &         % present 1
              2 \\
 %%% 3  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ مُشاهَدة }&        % masdar example
+\textarabic{ ة }     &         % masdar 6
+\textarabic{ ـــ }   &         % masdar 5
+\textarabic{ ــَـ }   &         % masdar 4
+\textarabic{ ا }     &         % masdar 3
+\textarabic{ ــْـ }   &         % masdar 2
+\textarabic{ مُـ }    &         % masdar 1
 \textarabic{ يُشاهِدُ } &         % past example
 \textarabic{ ــُـ }   &         % past 5
 \textarabic{ ــِـ }   &         % past 4
@@ -86,6 +123,13 @@
 \textarabic{ ـــ }   &         % present 1
              3 \\
 %%% 4  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ اِرسال } &         % masdar example
+                     &         % masdar 6
+\textarabic{ ــْـ }   &         % masdar 5
+\textarabic{ ا }     &         % masdar 4
+\textarabic{ ــْـ }   &         % masdar 3
+\textarabic{ ــْـ }   &         % masdar 2
+\textarabic{ اِ }     &         % masdar 1
 \textarabic{ يُرسِلُ }&         % past example
                    &         % past 5
 \textarabic{ ــُـ } &         % past 4
@@ -100,6 +144,13 @@
 \textarabic{ ا }   &         % present 1
              4 \\
 %%% 5  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ تَّذَكُّر }  &         % masdar example
+                     &         % masdar 6
+                     &         % masdar 5
+\textarabic{ ــْـ }   &         % masdar 4
+\textarabic{ ــُّـ }   &         % masdar 3
+\textarabic{ ـــ }   &         % masdar 2
+\textarabic{ تَّـ }    &         % masdar 1
 \textarabic{ يتَذَكَّرُ } &         % past example
                      &         % past 5
 \textarabic{ ــُـ }   &         % past 4
@@ -114,13 +165,20 @@
 \textarabic{ تَـ }    &         % present 1
              5 \\
 %%% 6  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textarabic{ يَتَناولُ }  &         % past example
+\textarabic{ تَّبادُل }   &    % masdar example
+                       &    % masdar 6
+\textarabic{ ــْـ }     &    % masdar 5
+\textarabic{ ــُـ }     &    % masdar 4
+\textarabic{ ا }       &    % masdar 3
+\textarabic{ ــْـ }     &    % masdar 2
+\textarabic{ تَّـ }      &    % masdar 1
+\textarabic{ يَتَبادَلُ }  &    % past example
 \textarabic{ ــُـ }     &    % past 5
 \textarabic{ ـــ }     &    % past 4
 \textarabic{ ا }       &    % past 3
 \textarabic{ ــْـ }     &    % past 2
 \textarabic{ يـتَـ }    &    % past 1
-\textarabic{ تَناولَ }   &    % present example
+\textarabic{ تَبادَلَ }   &    % present example
 \textarabic{ ـــ }     &    % present 5
 \textarabic{ ـــ }     &    % present 4
 \textarabic{ ا }       &    % present 3
@@ -128,6 +186,13 @@
 \textarabic{ تَـ }      &    % present 1
              6 \\
 %%% 7  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ اِنقِطاع }  &    % masdar example
+                       &    % masdar 6
+\textarabic{ ــْـ }     &    % masdar 5
+\textarabic{ ا }       &    % masdar 4
+\textarabic{ ــْـ }     &    % masdar 3
+\textarabic{ ــِـ }     &    % masdar 2
+\textarabic{ اِنـ }     &    % masdar 1
 \textarabic{ يَنقَطِعُ }&    % past example
                     &    % past 5
 \textarabic{ ــُـ  } &    % past 4
@@ -142,6 +207,13 @@
 \textarabic{ اِنـ }  &    % present 1
              7 \\
 %%% 8  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ اِختِلاف }  &    % masdar example
+\textarabic{ ــْـ }    &    % masdar 6
+\textarabic{ ا }      &    % masdar 5
+\textarabic{ ــْـ }    &    % masdar 4
+\textarabic{ ـتِـ }    &    % masdar 3
+\textarabic{ ــْـ }    &    % masdar 2
+\textarabic{ اِ }      &    % masdar 1
 \textarabic{ يختَلِفُ }  &    % past example
 \textarabic{ ــُـ  }   &    % past 5
 \textarabic{ ــِـ }    &    % past 4
@@ -155,21 +227,14 @@
 \textarabic{ ــْـ }    &    % present 2
 \textarabic{ ا }      &    % present 1
              8  \\
-%%% 9  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&    % past example
-&    % past 5
-&    % past 4
-&    % past 3
-&    % past 2
-&    % past 1
-&    % present example
-&    % present 5
-&    % present 4
-&    % present 3
-&    % present 2
-&    % present 1
-9  \\
 %%% 10  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textarabic{ اِستِعمال }  &    % masdar example
+                        &    % masdar 6
+\textarabic{ ــْـ }      &    % masdar 5
+\textarabic{ ا }        &    % masdar 4
+\textarabic{ ــْـ }      &    % masdar 3
+\textarabic{ ــْـ }      &    % masdar 2
+\textarabic{ اِستِـ }     &    % masdar 1
 \textarabic{ يستَعمِلُ }  &    % past example
                        &    % past 5
 \textarabic{ ــُـ }     &    % past 4

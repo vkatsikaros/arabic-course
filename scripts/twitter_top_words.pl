@@ -36,6 +36,9 @@ my %stopwords = (
     "\N{ARABIC LETTER HEH}\N{ARABIC LETTER YEH}" => 1, # hia
     "\N{ARABIC LETTER ALEF}\N{ARABIC LETTER LAM}\N{ARABIC LETTER TEH}\N{ARABIC LETTER YEH}" => 1, # alati
     "\N{ARABIC LETTER ALEF}\N{ARABIC LETTER LAM}\N{ARABIC LETTER THAL}\N{ARABIC LETTER YEH}" => 1, # aladi
+    "\N{ARABIC LETTER BEH}\N{ARABIC LETTER AIN}\N{ARABIC LETTER DAL}" => 1, # baad
+    "\N{ARABIC LETTER NOON}\N{ARABIC LETTER HAH}\N{ARABIC LETTER WAW}" => 1, #nahou
+    "\N{ARABIC LETTER WAW}" => 1, #ou
 );
 my $nt = Net::Twitter->new(
     traits   => [ qw/ API::RESTv1_1 OAuth / ],

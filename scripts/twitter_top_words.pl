@@ -12,12 +12,16 @@ my $consumer_secret;
 my $access_token;
 my $access_token_secret;
 my $opt_accounts;
+my $opt_latex;
+my $opt_stats;
 my $result = GetOptions(
     'consumer-key=s'         => \$consumer_key,
     'consumer-secret=s'      => \$consumer_secret,
     'access-token=s'         => \$access_token,
     'access-token-secret=s'  => \$access_token_secret,
     'accounts=s'             => \$opt_accounts,
+    'latex'                  => \$opt_latex,
+    'stats'                  => \$opt_stats,
 );
 my @accounts = split(/,/,$opt_accounts);
 
@@ -82,7 +86,7 @@ foreach my $t ( @tweets ) {
         $i =~ s/\p{General_Category=Punctuation}//g;
         # remove everything not in the arabic unicode block
         $i =~ s/\P{Block=Arabic}//g;
-	next if length($i) == 0; # ignore empty words
+      	next if length($i) == 0; # ignore empty words
         next if $i =~ m/^\W+$/; # ignore non-"word" characters only words
         # ignore common words
         if( $stopwords{$i} ) {
@@ -95,12 +99,21 @@ foreach my $t ( @tweets ) {
 }
 my %stats;
 foreach my $w ( sort { $words{$a} <=> $words{$b} } keys %words ) {
-    say $words{$w} . ' ' .$w;
     $stats{$words{$w}}++;
+    if( $opt_stats ) {
+      say $words{$w} . ' ' .$w;
+    }
+    if( $opt_latex && $words{$w} >= 8 ) {
+      say "$words{$w} & & \\ar{ $w } \\\\";
+    }
 }
-say "Stats:\noccurences count";
-foreach my $i ( sort {$a <=> $b} keys %stats ) {
-    say "$i $stats{$i}";
+
+if( $opt_stats ) {
+  say "Stats:\noccurences count";
+  foreach my $i ( sort {$a <=> $b} keys %stats ) {
+      say "$i $stats{$i}";
+  }
+  say scalar(@tweets)." tweets, $word_count words + $stopword_count stopwords";
 }
-say scalar(@tweets)." tweets, $word_count words + $stopword_count stopwords";
+
 exit(0);

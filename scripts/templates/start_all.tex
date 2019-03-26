@@ -1,0 +1,73 @@
+\documentclass[twocolumn,a4paper]{article}
+
+% Compile with xelatex
+
+%\usepackage{longtable} % Doesn't not work with \documentclass[twocolumns] - avoid
+\usepackage{supertabular,booktabs}
+
+\usepackage[a4paper, margin=1in]{geometry}
+
+% TODO check: table row height?
+\usepackage{array}
+\usepackage{leading}
+
+% different langiages: greek, arabic
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{arabic}
+\newcommand{\ar}[1]{\textarabic{#1}}
+
+% fonts
+\setmainfont[Mapping=tex-text,Scale=1]{DejaVu Sans} % nice greek chars
+\newfontfamily\arabicfont[Script=Arabic,Scale=1.5]{Droid Arabic Naskh} % nice arabic chars
+
+% Droid Arabic Naskh doesn't have Unicode Block "Basic Latin"'s
+% LEFT PARENTHESIS (U+0028) and RIGHT PARENTHESIS (U+0029)
+% so we need a workaround in order to have parenthesis
+\newcommand{\prth}[1]{\textenglish{)}#1\textenglish{(}}
+
+% sign for nouns with plural
+\newcommand{\pl}{\raisebox{0.15ex}{\footnotesize ◍}}
+% ⊕ 🀆 🀱 ◫ □ ✪ ⟐ % other interesting unicode symbols
+
+% append normal plural to nouns
+\newcommand{\normpl}[1]{\ar{ #1، ات }}
+
+% normal masculine and feminine plural
+\newcommand{\mfnormpl}[1]{\ar{ #1، ون،ين }}
+
+% sign for verbs with both present and past tense (verb full)
+\newcommand{\vrf}{\raisebox{0.15ex}{\footnotesize ◉}}
+% sign for verbs with present only
+\newcommand{\vr}{\raisebox{0.15ex}{\footnotesize ◎}}
+% sign for masdar
+\newcommand{\mas}{\raisebox{0.15ex}{\footnotesize ◫}}
+
+\begin{document}
+
+% increase vertical space between rows
+\renewcommand*{\arraystretch}{3}
+% verb form (can be turned on/off)
+\newcommand{\vrform}[1]{
+	\textsuperscript{
+		{
+		\fontfamily{DejaVu}\selectfont % change font to a serif one
+			\uppercase\expandafter{\romannumeral#1}
+		}
+	}
+}
+% ensure twocolumns are spaced out so that they do not overlap
+\setlength\tabcolsep{1pt}
+
+% footnote without marker
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+% new column P: paragraph column with horizontal centering
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{mpsupertabular}{ P{0.1\textwidth} P{0.4\textwidth} P{0.4\textwidth} }

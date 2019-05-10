@@ -21,7 +21,6 @@ my $tweets = read_tweets();
 my $processed_tweets = process_tweets($tweets);
 my $tweets_json = $json->encode( $processed_tweets );
 write_text('processed_tweets.json', $tweets_json);
-say "ok";
 
 sub read_word_lists
 {

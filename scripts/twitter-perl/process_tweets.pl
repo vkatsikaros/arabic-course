@@ -71,6 +71,9 @@ sub process_tweets
 
       	  next if length($i) == 0; # ignore empty words
           next if $i =~ m/^\W+$/; # ignore non-"word" characters only words
+
+          # remove "definitive article"
+          $i =~ s/^\N{ARABIC LETTER ALEF}\N{ARABIC LETTER LAM}//g;
           # ignore common words
           $count{total}++;
           if( $stopwords->{$i} ) {
